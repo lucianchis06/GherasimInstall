@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <!-- Bootstrap -->
+    @*<link href="css/bootstrap.min.css" rel="stylesheet">*@
+    <link href='http://fonts.googleapis.com/css?family=Capriola' rel='stylesheet' type='text/css'>
+    @*<link href="css/style.css" rel="stylesheet">*@
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=550516608482872";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+</head>
+<body>
+    <header class="main__header">
+        <div class="container">
+            <nav class="navbar navbar-default" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <h1 class="navbar-brand"><a href="index.html">Gherasim Instal S.R.L.</a></h1>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-right navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        @{
+                            if (ViewContext.RouteData.GetRequiredString("action") == "Index")
+                            {
+                                <li class="active"><a href="~/Home/Index">Home</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="~/Home/Index">Home</a></li>
+                            }
+                        }
+                        @*<li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="index_fixed.html">Home / Fixed</a></li>
+                                    <li><a href="index_with_blog.html">Home + Blog</a></li>
+                                    <li><a href="portfolio.html">Portfolio</a></li>
+                                    <li><a href="typography.html">Typography</a></li>
+                                    <li><a href="shortcodes.html">Shortcodes</a></li>
+                                    <li><a href="store.html">Web Store</a></li>
+                                    <li><a href="blog.html">Blog & News</a></li>
+                                    <li><a href="tables.html">Tables</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
+                                </ul>
+                            </li>*@
+                        @{
+                            if (ViewContext.RouteData.GetRequiredString("action") == "Contact")
+                            {
+                                <li class="active"><a href="~/Home/Contact">contact us</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="~/Home/Contact">contact us</a></li>
+                            }
+                        }
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+                <!-- /.navbar-collapse -->
+            </nav>
+        </div>
+    </header>
+    @RenderBody()
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>About</h3>
+                    <p>
+                        We strive to deliver a level of service that exceeds the expectations of our customers. <br />
+                        <br />
+                        If you have any questions about our products or services, please do not hesitate to contact us. We have friendly, knowledgeable representatives available seven days a week to assist you.
+                    </p>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                    <h3>Facebook</h3>
+                    <div class="fb-page" data-href="https://www.facebook.com/Gherasim-Instal-SRL-157980970952504/" data-tabs="timeline" data-height="200" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Gherasim-Instal-SRL-157980970952504/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Gherasim-Instal-SRL-157980970952504/">Gherasim Instal S.R.L</a></blockquote></div>
+                </div>
+                @*<div class="col-md-3">
+                        <h3>Mailing list</h3>
+                        <p>Subscribe to our mailing list for offers, news updates and more!</p>
+                        <br />
+                        <form action="#" method="post" class="form-inline" role="form">
+                            <div class="form-group">
+                                <label class="sr-only" for="exampleInputEmail2">your email:</label>
+                                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="your email:">
+                            </div>
+                            <button type="submit" class="btn btn-primary">subscribe</button>
+                        </form>
+                    </div>*@
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <h3>Social</h3>
+                    <p>
+                        123 Business Way<br />
+                        San Francisco, CA 94108<br />
+                        USA<br />
+                        <br />
+                        Phone: (888) 123-4567<br />
+                        Fax: (887) 123-4567<br />
+                        <br />
+                    </p>
+                    <div class="social__icons"> <a href="#" class="socialicon socialicon-twitter"></a> <a href="https://www.facebook.com/Gherasim-Instal-SRL-157980970952504/" class="socialicon socialicon-facebook"></a> <a href="#" class="socialicon socialicon-google"></a> </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy">
+            <div class="container">
+                <p class="text-center">&copy; Copyright ABC Company. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    @*<script type="text/javascript" src="js/jquery.min.js"></script>*@
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    @*<script src="js/bootstrap.min.js"></script>*@
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+
+        $('.carousel').carousel({
+            interval: 3500, // in milliseconds
+            pause: 'none' // set to 'true' to pause slider on mouse hover
+        })
+    </script>
+
+</body>
+</html>
